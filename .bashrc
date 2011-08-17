@@ -22,7 +22,7 @@
 #       /etc/profile.d/*
 
 # If not running interactively, don't do anything
-if ( shopt -q login_shell ); then return; fi
+if ( ! shopt -q login_shell ); then return; fi
 
 # Shell Options
 #
