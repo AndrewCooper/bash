@@ -2,6 +2,8 @@
 #
 #   ~/.bash_functions
 #
+#	Set up functions for interactive shells
+#
 ###########################################################
 #
 # FUNCTIONS
@@ -74,6 +76,8 @@
 # 
 ###########################################################
 
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_functions'; fi
+
 function gitcd() 
 {
 	local root=$(git rev-parse --show-toplevel)
@@ -83,3 +87,5 @@ function gitcd()
 		cd ${1}
 	fi
 }
+
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_functions'; fi

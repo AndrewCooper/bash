@@ -1,3 +1,13 @@
+###########################################################
+#
+#   ~/.bash_histenv
+#
+#	Set environment variables for Bash history
+#
+###########################################################
+
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_histenv'; fi
+
 # HISTCONTROL
 # 		A  colon-separated list of values controlling how commands are saved
 # 		on the history list.  If the list of  values  includes  ignorespace,
@@ -59,3 +69,4 @@ export HISTSIZE=1000
 # Whenever displaying the prompt, write the previous line to disk
 # export PROMPT_COMMAND="history -a"
 
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_histenv'; fi

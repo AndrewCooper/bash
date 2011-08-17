@@ -2,24 +2,11 @@
 #
 #   ~/.profile
 #
+#	Executed by Bash for login shells
+#
 ###########################################################
-#
-# Startup file execution order
-#
-# Login shell (interactive or non with --login)
-#   /etc/profile
-#       /etc/profile.d/*
-#       /etc/bash.bashrc
-#   ~/.bash_profile
-#       ~/.bashrc
-#       ~/.profile
-#
-# Interactive non-login shell (most GUI terminals and subshells)
-#	~/.bashrc
-#
-# GUI Environment
-#   /etc/profile
-#       /etc/profile.d/*
+
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.profile'; fi
 
 # User's private bin
 #   Set PATH so it includes user's private bin if it exists
@@ -31,3 +18,5 @@ fi
 # RVM (Ruby Version Manager)
 #
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.profile'; fi

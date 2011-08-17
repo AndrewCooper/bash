@@ -2,27 +2,16 @@
 #
 #   ~/.bash_profile
 #
+#	Executed by Bash for login shells, interactive or not
+#
 ###########################################################
-#
-# Startup file execution order
-#
-# Login shell (interactive or non with --login)
-#   /etc/profile
-#       /etc/profile.d/*
-#       /etc/bash.bashrc
-#   ~/.bash_profile
-#       ~/.bashrc
-#       ~/.profile
-#
-# Interactive non-login shell (most GUI terminals and subshells)
-#	~/.bashrc
-#
-# GUI Environment
-#   /etc/profile
-#       /etc/profile.d/*
+
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_profile'; fi
 
 # ~/.bashrc
 #
 if [ -f "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
+
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_profile'; fi

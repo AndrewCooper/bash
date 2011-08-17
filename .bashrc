@@ -2,24 +2,11 @@
 #
 #   ~/.bashrc
 #
+#	Executed by Bash for interactive non-login shells
+#
 ###########################################################
-#
-# Startup file execution order
-#
-# Login shell (interactive or non with --login)
-#   /etc/profile
-#       /etc/profile.d/*
-#       /etc/bash.bashrc
-#   ~/.bash_profile
-#       ~/.bashrc
-#       ~/.profile
-#
-# Interactive non-login shell (most GUI terminals and subshells)
-#	~/.bashrc
-#
-# GUI Environment
-#   /etc/profile
-#       /etc/profile.d/*
+
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bashrc'; fi
 
 # If not running interactively, don't do anything
 if ( ! shopt -q login_shell ); then return; fi
@@ -63,3 +50,5 @@ fi
 # RVM (Ruby Version Manager)
 #
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bashrc'; fi

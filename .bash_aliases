@@ -2,6 +2,8 @@
 #
 #   ~/.bash_aliases
 #
+#	Set up command aliases for interactive shells
+#
 ###########################################################
 #
 # ALIASES
@@ -70,6 +72,8 @@
 #
 ###########################################################
 
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_aliases'; fi
+
 # Interactive operation...
 #
 # alias rm='rm -i'
@@ -107,3 +111,4 @@
   alias egrep='egrep --color=auto'
   alias srcgrep='find . \( -iname "*.s" -o -iname "*.h" -o -iname "*.hpp" -o -iname "*.c" -o -iname "*.cpp" \) -print0 | xargs -0 grep -n'
 
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_aliases'; fi
