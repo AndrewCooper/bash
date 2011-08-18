@@ -106,6 +106,6 @@ ps_go=$ps_default'\$ '
 
 # assemble the prompt
 
-PS1=$ps_time' '$ps_userhost' '$ps_cwd' '$ps_git'\n'$ps_go
+PS1='\n'$ps_time' '$ps_userhost' '$ps_cwd' '$ps_git'\n'$ps_go
 
 if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_prompts'; fi
