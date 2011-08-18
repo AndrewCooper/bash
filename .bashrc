@@ -9,7 +9,7 @@
 if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bashrc'; fi
 
 # If not running interactively, don't do anything
-if ( ! shopt -q login_shell ); then return; fi
+if [ -z "$PS1" ]; then return; fi
 
 # Shell Options
 #
