@@ -41,12 +41,6 @@ if [ -f "${HOME}/.bash_prompts" ]; then
   source "${HOME}/.bash_prompts"
 fi
 
-# Environment
-#
-if [ $OSTYPE == "cygwin" -o $OSTYPE == "msys" ]; then 
-  export GIT_SSH="C:\Program Files\PuTTY\plink.exe"
-fi
-
 # RVM (Ruby Version Manager)
 #
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
