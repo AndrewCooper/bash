@@ -74,38 +74,55 @@
 
 if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_prompts'; fi
 
+# use a function to scope all of these variables
+function set_prompt() {
+
+# xterm control sequences
+local csi='\033['				# Control Sequence Introducer
+local osc='\033]'				# Operating System Command
+local bel='\007'				# Bell character
+local icnttl='0;'
+local icn='1;'
+local ttl='2;'
+
+# echo nonprintable escape
+local esc='\['
+local cse='\]'
+
 # ansi color escape sequences
+local ps_default=$esc$csi'0m'$cse
 
-ps_default='\[\033[0m\]'
+local ps_black=$esc$csi'30m'$cse
+local ps_red=$esc$csi'31m'$cse
+local ps_green=$esc$csi'32m'$cse
+local ps_yellow=$esc$csi'33m'$cse
+local ps_blue=$esc$csi'34m'$cse
+local ps_magenta=$esc$csi'35m'$cse
+local ps_cyan=$esc$csi'36m'$cse
+local ps_white=$esc$csi'37m'$cse
 
-ps_black='\[\033[30m\]'
-ps_red='\[\033[31m\]'
-ps_green='\[\033[32m\]'
-ps_yellow='\[\033[33m\]'
-ps_blue='\[\033[34m\]'
-ps_magenta='\[\033[35m\]'
-ps_cyan='\[\033[36m\]'
-ps_white='\[\033[37m\]'
-
-ps_bold_black='\[\033[1;30m\]'
-ps_bold_red='\[\033[1;31m\]'
-ps_bold_green='\[\033[1;32m\]'
-ps_bold_yellow='\[\033[1;33m\]'
-ps_bold_blue='\[\033[1;34m\]'
-ps_bold_magenta='\[\033[1;35m\]'
-ps_bold_cyan='\[\033[1;36m\]'
-ps_bold_white='\[\033[1;37m\]'
+local ps_bold_black=$esc$csi'1;30m'$cse
+local ps_bold_red=$esc$csi'1;31m'$cse
+local ps_bold_green=$esc$csi'1;32m'$cse
+local ps_bold_yellow=$esc$csi'1;33m'$cse
+local ps_bold_blue=$esc$csi'1;34m'$cse
+local ps_bold_magenta=$esc$csi'1;35m'$cse
+local ps_bold_cyan=$esc$csi'1;36m'$cse
+local ps_bold_white=$esc$csi'1;37m'$cse
 
 # pieces of the prompt
-
-ps_userhost=$ps_green'\u@\h'
-ps_cwd=$ps_yellow'\w'
-ps_time=$ps_magenta'\t'
-ps_git=$ps_cyan'$(__git_ps1)'
-ps_go=$ps_default'\$ '
+local ps_title=$esc$osc$ttl'\h: \w'$bel$cse
+local ps_userhost=$ps_green'\u@\h'
+local ps_cwd=$ps_yellow'\w'
+local ps_time=$ps_magenta'\t'
+local ps_git=$ps_cyan'$(__git_ps1)'
+local ps_go=$ps_default'\$ '
 
 # assemble the prompt
+export PS1=$ps_title'\n'$ps_time' '$ps_userhost' '$ps_cwd' '$ps_git'\n'$ps_go
+}
 
-PS1='\n'$ps_time' '$ps_userhost' '$ps_cwd' '$ps_git'\n'$ps_go
+# call the prompt function
+set_prompt
 
 if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_prompts'; fi
