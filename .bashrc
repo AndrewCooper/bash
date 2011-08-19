@@ -22,7 +22,7 @@
 #       /etc/profile.d/*
 
 # If not running interactively, don't do anything
-[[ "$-" != *i* ]] && return
+if ( shopt -q login_shell ); then return; fi
 
 # Shell Options
 #
