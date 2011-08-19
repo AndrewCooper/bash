@@ -21,7 +21,8 @@
 #   /etc/profile
 #       /etc/profile.d/*
 
-# source the users bashrc if it exists
+# ~/.bashrc
+#
 if [ -f "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
