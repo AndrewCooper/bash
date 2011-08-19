@@ -25,6 +25,3 @@
 if [ -f "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
-
-
-export GIT_SSH="C:\Program Files\PuTTY\plink.exe"
