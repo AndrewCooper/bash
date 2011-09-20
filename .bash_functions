@@ -78,6 +78,11 @@
 
 if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_functions'; fi
 
+# Load bash completions, if not already loaded
+if [ -z "$BASH_COMPLETION" ] && [ -r /etc/bash_completion ]; then
+	. /etc/bash_completion
+fi
+
 function gitcd() 
 {
 	local root=$(git rev-parse --show-toplevel)
