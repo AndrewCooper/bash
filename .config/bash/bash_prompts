@@ -72,7 +72,12 @@
 #
 ###########################################################
 
-if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_prompts'; fi
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering bash_prompts; fi
+
+if [ -f "$HOME/.local/share/git/git-prompt.sh" ]
+then
+  source "$HOME/.local/share/git/git-prompt.sh"
+fi
 
 # use a function to scope all of these variables
 function set_prompt() {
@@ -125,4 +130,4 @@ export PS1=$ps_title'\n'$ps_time' '$ps_userhost' '$ps_cwd' '$ps_git'\n'$ps_go
 # call the prompt function
 set_prompt
 
-if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_prompts'; fi
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving bash_prompts; fi

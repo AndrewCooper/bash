@@ -76,7 +76,7 @@
 # 
 ###########################################################
 
-if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_functions'; fi
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering bash_functions; fi
 
 # Load bash completions, if not already loaded
 if [ -z "$BASH_COMPLETION" ] && [ -r /etc/bash_completion ]; then
@@ -112,4 +112,4 @@ function gitcd()
 #	echo
 #}
 
-if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_functions'; fi
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving bash_functions; fi

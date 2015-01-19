@@ -6,7 +6,7 @@
 #
 ###########################################################
 
-if test -n "$BASH_TRACE_STARTUP"; then echo Entering '~/.bash_shopts'; fi
+if test -n "$BASH_TRACE_STARTUP"; then echo Entering bash_shopts; fi
 
 # autocd  If  set,  a  command name that is the name of a directory is
 # 		executed as if it were the argument to the cd command.  This
@@ -204,4 +204,4 @@ shopt -s sourcepath
 # 		If set, the echo builtin expands backslash-escape  sequences
 # 		by default.
 
-if test -n "$BASH_TRACE_STARTUP"; then echo Leaving '~/.bash_shopts'; fi
+if test -n "$BASH_TRACE_STARTUP"; then echo Leaving bash_shopts; fi
