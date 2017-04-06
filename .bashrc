@@ -8,36 +8,53 @@
 
 if test -n "$BASH_TRACE_STARTUP"; then echo Entering bashrc; fi
 
+# source system's bashrc file
+#
+if [ -r "/etc/bashrc" ]; then
+  source "/etc/bashrc"
+fi
+
 # If not running interactively, don't do anything
 if [ -z "$PS1" ]; then return; fi
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+# Environment Options
+#
+export PATH=${HOME}/.local/bin:${PATH}
+
 # Shell Options
 #
-if [ -f "${HOME}/.config/bash/bash_shopts" ]; then
+if [ -r "${HOME}/.config/bash/bash_shopts" ]; then
   source "${HOME}/.config/bash/bash_shopts"
 fi
 
 # History Options
 #
-if [ -f "${HOME}/.config/bash/bash_histenv" ]; then
+if [ -r "${HOME}/.config/bash/bash_histenv" ]; then
   source "${HOME}/.config/bash/bash_histenv"
 fi
 
 # Aliases
 #
-if [ -f "${HOME}/.config/bash/bash_aliases" ]; then
+if [ -r "${HOME}/.config/bash/bash_aliases" ]; then
   source "${HOME}/.config/bash/bash_aliases"
 fi
 
 # Functions
 #
-if [ -f "${HOME}/.config/bash/bash_functions" ]; then
+if [ -r "${HOME}/.config/bash/bash_functions" ]; then
   source "${HOME}/.config/bash/bash_functions"
 fi
 
 # Prompts
 #
-if [ -f "${HOME}/.config/bash/bash_prompts" ]; then
+if [ -r "${HOME}/.config/bash/bash_prompts" ]; then
   source "${HOME}/.config/bash/bash_prompts"
 fi
 

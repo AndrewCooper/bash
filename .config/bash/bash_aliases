@@ -83,8 +83,8 @@ if test -n "$BASH_TRACE_STARTUP"; then echo Entering bash_aliases; fi
 
 # Default to human readable figures
 #
-# alias df='df -h'
-# alias du='du -h'
+  alias df='df -h'
+  alias du='du -h'
 
 # Misc
 #
@@ -110,5 +110,10 @@ if test -n "$BASH_TRACE_STARTUP"; then echo Entering bash_aliases; fi
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
   alias srcgrep='grep -I --include="*.h" --include="*.hpp" --include="*.c" --include="*.cpp"'
+
+# Git Shortcuts
+  alias gcv='git commit'
+  alias gg='git grep -i'
+  alias gst='git status -sb'
 
 if test -n "$BASH_TRACE_STARTUP"; then echo Leaving bash_aliases; fi
